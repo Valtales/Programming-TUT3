@@ -1,4 +1,4 @@
-// Predicate inputs may be null, undefined, numbers (including NaN), or numeric strings.
+// Inputs can be null, undefined, numbers (including NaN), or numeric strings.
 let even_predicate = function (value) {
     if (value === null || value === undefined) {
         return false;
@@ -14,7 +14,7 @@ let odd_predicate = function (value) {
     }
 
     let numberValue = Number(value);
-    // Negative odd numbers have a remainder of -1, so check for a nonzero remainder.
+    // Use a nonzero remainder so negative odd numbers work too.
     return Number.isInteger(numberValue) && numberValue % 2 !== 0;
 };
 
@@ -26,14 +26,14 @@ let null_predicate = function (value) {
     return value === null;
 };
 
-// Expects a predicate function and a value from the allowed inputs above.
+// Takes a predicate function and a value to test.
 let check = function (predicate, value) {
     return predicate(value);
 };
 
-// Expects E, English, F, or French, with any capitalization.
+// Accepts E, English, F, or French, regardless of capitalization.
 let getDictionary = function (lang) {
-    // Expects a number and returns its English name for 1, 2, or 3.
+    // Returns the English word for 1, 2, or 3.
     let englishDictionary = function (number) {
         switch (number) {
             case 1:
@@ -47,7 +47,7 @@ let getDictionary = function (lang) {
         }
     };
 
-    // Expects a number and returns its French name for 1, 2, or 3.
+    // Returns the French word for 1, 2, or 3.
     let frenchDictionary = function (number) {
         switch (number) {
             case 1:
@@ -68,9 +68,9 @@ let getDictionary = function (lang) {
     return frenchDictionary;
 };
 
-// Get each dictionary function, then call it with a number.
+// Get each dictionary, then test it with a number.
 let englishDictionaryTest = getDictionary("English");
-console.log(englishDictionaryTest(1)); // Expected: one
+console.log(englishDictionaryTest(1)); // should print: one
 
 let frenchDictionaryTest = getDictionary("French");
-console.log(frenchDictionaryTest(2)); // Expected: deux
+console.log(frenchDictionaryTest(2)); // should print: deux
