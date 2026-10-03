@@ -70,7 +70,7 @@ let getDictionary = function (lang) {
 
 // Get each dictionary, then test it with a number.
 let englishDictionaryTest = getDictionary("English");
-console.log(englishDictionaryTest(1)); // should print: one
+console.log(englishDictionaryTest(1)); // should print one
 
 let frenchDictionaryTest = getDictionary("French");
-console.log(frenchDictionaryTest(2)); // should print: deux
+console.log(frenchDictionaryTest(2)); // should print deux
